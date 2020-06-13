@@ -34,6 +34,7 @@ if __name__ == "__main__":
         loss_fun = torch.nn.CrossEntropyLoss()
 
         for epoch in range(epoch_num):
+            model.train()  # 包含dropout或者BN的模型需要指定
             for i, batch in enumerate(train_iter):
                 if load_data_by_torchtext:
                     x, y = batch.sent.t(), batch.label
@@ -45,6 +46,7 @@ if __name__ == "__main__":
                 loss.backward()
                 optimizer.step()
 
+            model.eval()
             train_accs = []
             for i, batch in enumerate(train_iter):
                 if load_data_by_torchtext:
