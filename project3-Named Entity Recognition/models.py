@@ -33,9 +33,7 @@ class BiLSTM_CRF_NER(nn.Module):
     def get_emissions(self, x):
         batch_size, seq_len = x.shape
         embedded = self.embed(x)
-        h0, c0 = torch.zeros(2, batch_size, self.hidden_size).to(self.device), torch.zeros(2, batch_size,
-                                                                                           self.hidden_size).to(
-            self.device)
+        h0, c0 = torch.zeros(2, batch_size, self.hidden_size).to(self.device), torch.zeros(2, batch_size, self.hidden_size).to(self.device)
         lstm_out, (_, _) = self.lstm(embedded, (h0, c0))
         emissions = self.hidden2tag(lstm_out)
         return emissions

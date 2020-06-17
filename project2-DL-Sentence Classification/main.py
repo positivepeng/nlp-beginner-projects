@@ -23,7 +23,7 @@ if __name__ == "__main__":
     else:
         train_iter, val_iter, word_vectors, X_lang = make_dataloader(batch_size=100, debug=True)
 
-    for model_name in model_names:
+    for model_name in model_names[-1:]:
         if model_name == "RNN":
             model = TextRNN(vocab_size=len(word_vectors), embedding_dim=50, hidden_size=128, num_of_class=num_of_class, weights=word_vectors)
         elif model_name == "CNN":
@@ -46,6 +46,7 @@ if __name__ == "__main__":
                 loss.backward()
                 optimizer.step()
 
+            # with torch.no_grad():
             model.eval()
             train_accs = []
             for i, batch in enumerate(train_iter):
@@ -53,7 +54,6 @@ if __name__ == "__main__":
                     x, y = batch.sent.t(), batch.label
                 else:
                     x, y, lens = batch
-                logits = model(x)
                 _, y_pre = torch.max(logits, -1)
                 acc = torch.mean((torch.tensor(y_pre == y, dtype=torch.float)))
                 train_accs.append(acc)

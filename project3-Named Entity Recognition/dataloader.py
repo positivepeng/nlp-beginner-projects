@@ -50,7 +50,6 @@ def prepare_data(dataset_path, debug=False):
 
 def dataset2dataloader(dataset_path="../dataset/conll2003-IOB", batch_size=3, debug=False):
     train_csv, dev_csv = prepare_data(dataset_path, debug=debug)
-    spacy_en = spacy.load('en_core_web_sm')
 
     def tokenizer(text):
         return text.split(" ")

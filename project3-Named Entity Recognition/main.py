@@ -9,7 +9,6 @@ from dataloader import dataset2dataloader
 from models import BiLSTM_CRF_NER
 from torch.optim import Adam
 import torch
-from sklearn.metrics import f1_score
 import numpy as np
 
 if __name__ == "__main__":
