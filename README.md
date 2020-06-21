@@ -7,12 +7,13 @@ NLP常见任务实现（pytorch版）
 博客地址：[基于RNN、CNN的文本多分类](https://blog.csdn.net/philpanic9/article/details/106728786)<br>
 - [x] 项目三：BiLSTM-CRF命名实体识别<br>
 博客地址：[基于BiLSTM-CRF的实体识别](https://blog.csdn.net/philpanic9/article/details/106742297)<br>
-> My  name is Phil , I am from European Union . --> <br>
+> 输入待标注的句子，输出标注结果<br>
+My  name is Phil , I am from European Union . --> <br>
 ['O', 'O', 'O', 'B-PER', 'O', 'O', 'O', 'O', 'B-ORG', 'I-ORG', 'O']
 
 - [x] 项目四：机器翻译<br>
 博客地址：[基于Seq2Seq（包含Attention）的机器翻译](https://blog.csdn.net/philpanic9/article/details/106806350)<br>
-> **输入人可读的日期，翻译出机器可读的日期**
+> **输入人可读的日期，翻译出机器可读的日期**<br>
 monday may 7 1983 --> 1983-05-07<br>
 19 march 1998 --> 1998-03-19<br>
 18 jul 2008 --> 2008-07-18<br>
